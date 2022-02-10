@@ -30,6 +30,8 @@ jobs:
           echo TWITTER_USERNAME="$TWITTER_USERNAME" >> .env
       - name: Install Google Chorme Driver
         run: |
+          ls ./
+          pwd ./
           sudo sh install_google_chrome.sh
       - name: Set up Python3
         uses: actions/setup-python@v2
