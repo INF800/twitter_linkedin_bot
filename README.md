@@ -3,7 +3,7 @@ Post tweets from twitter into linkedin
 
 > Currently supports only ubuntu os.
 
-
+Todo: [] Github actions automation
 
 ### How to setup
 

@@ -161,7 +161,7 @@ def main():
         
         twitter_text = tweet['text']
         link = html_content.split('<a href="https://twitter.com/')[-1].split('</a>')[0].split('">')[0]
-        text = f"Original Twitter Post: https://twitter.com/{link}"
+        text = f"Original Twitter Post: https://twitter.com/{link}\n\n\n\n\nResharing bot tweets/retweets of https://twitter.com/inf800. Built for #MachineLearning #DeepLearning #DataScience and #ComputerScience geeks 🤩👨‍🏫"
         post_on_linkedin(digital_asset, text=text)
         write_published(tweet['id'])
 
