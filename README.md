@@ -1,6 +1,6 @@
 # twitter_linkedin_bot
 
-Post tweets from twitter into linkedin. Automated using github actions.
+Post tweets from twitter into linkedin. Automated using github actions (Note the database trick).
 
 > Currently supports only ubuntu os.
 
