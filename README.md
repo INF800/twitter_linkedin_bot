@@ -3,8 +3,6 @@ Post tweets from twitter into linkedin
 
 > Currently supports only ubuntu os.
 
-Todo: [] Github actions automation
-
 ### How to setup
 
 - Create `.env` file in main directory as follows with Linkedin and Twitter API access tokens and other information
@@ -38,4 +36,4 @@ Todo: [] Github actions automation
     ```
 - Install google chrome and package requirements using `install.sh`
 - Publish your latest tweets and retweets using `run.sh`
-
+- To automate, add the secrets in repo > settings > secrests > actions.

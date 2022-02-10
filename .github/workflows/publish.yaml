@@ -1,0 +1,44 @@
+name: scrape_data
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron:  '0 0,10,12,14,16,18,20,21,23 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        env:
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_URN: ${{ secrets.LINKEDIN_URN }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_KEY_SECRET: ${{ secrets.TWITTER_API_KEY_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_USER_ID: ${{ secrets.TWITTER_USER_ID }}
+          TWITTER_USERNAME: ${{ secrets.TWITTER_USERNAME }}
+        run: |
+          echo LINKEDIN_ACCESS_TOKEN="$LINKEDIN_ACCESS_TOKEN" >> .env
+          echo LINKEDIN_URN="$LINKEDIN_URN" >> .env
+          echo TWITTER_API_KEY="$TWITTER_API_KEY" >> .env
+          echo TWITTER_API_KEY_SECRET="$TWITTER_API_KEY_SECRET" >> .env
+          echo TWITTER_ACCESS_TOKEN="$TWITTER_ACCESS_TOKEN" >> .env
+          echo TWITTER_USER_ID="$TWITTER_USER_ID" >> .env
+          echo TWITTER_USERNAME="$TWITTER_USERNAME" >> .env
+      - name: Install Google Chorme Driver
+        run: |
+          sudo sh install_google_chrome.sh
+      - name: Set up Python3
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8.10'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Publish tweets to Linkedin
+        run: |
+          python publish.py
