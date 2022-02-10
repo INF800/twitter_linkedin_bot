@@ -30,9 +30,11 @@ jobs:
           echo TWITTER_USERNAME="$TWITTER_USERNAME" >> .env
       - name: Install Google Chorme Driver
         run: |
-          ls ./
-          pwd ./
-          sudo sh install_google_chrome.sh
+          sudo apt install xdg-utils wget fonts-liberation -y
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg --install google-chrome-stable_current_amd64.deb
+          rm -rf google-chrome-stable_current_amd64.deb
+          which google-chrome
       - name: Set up Python3
         uses: actions/setup-python@v2
         with:
