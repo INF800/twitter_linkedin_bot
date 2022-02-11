@@ -17,7 +17,7 @@ Post tweets from twitter into linkedin. Automated using github actions (Note the
     TWITTER_USERNAME="..."
     ```
     More info present [here](env_help) on how to acquire keys.
-    
+- Delete `db.txt` if you are running for the first time.
 - Install google chrome and package requirements using `install.sh`
 - Publish your latest tweets and retweets using `run.sh`
 - To automate, add the secrets in repo > settings > secrests > actions.
