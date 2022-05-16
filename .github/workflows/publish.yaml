@@ -1,9 +1,9 @@
 name: scrape_data
 
 on:
-  # push:
-  #   branches:
-  #     - test_ga
+  push:
+    branches:
+      - main
   schedule:
     - cron:  '40 5,13 * * *'
 
