@@ -1,12 +1,11 @@
 name: scrape_data
 
 on:
-#   push:
-#     branches:
-#       - main
-  schedule:
+  push:
+    branches:
+      - main
+#  schedule:
 #    - cron:  '30 6,12 * * *'
-    - cron: '*/10 * * * *'
 
 jobs:
   build:
